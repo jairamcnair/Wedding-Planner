@@ -15,6 +15,7 @@ function App(){
     <>
         <body>
           <SideMenu/>
+          
           <Budget/>
         </body>
     </>

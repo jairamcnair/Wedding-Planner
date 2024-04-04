@@ -15,6 +15,10 @@ const Budget = () => {
     const [fp, setFp] = useState('10');
     const [fcgp, setFcgp] = useState('10');
     const [hp, setHp] = useState('20');
+    const [bl, setBl] = useState('20');
+
+    /*let maxBString: string = maxB;
+    let maxBNumber: number = Number(maxBString);
 
     let ffpString: string = ffp;
     let ffpNumber: number = Number(ffpString);
@@ -25,11 +29,14 @@ const Budget = () => {
     let fpString: string = fp;
     let fpNumber: number = Number(fpString);
 
-    let fcgpString: string = fp;
+    let fcgpString: string = fcgp;
     let fcgpNumber: number = Number(fcgpString);
 
     let hpString: string = hp;
     let hpNumber: number = Number(hpString);
+
+    let blString: string = bl;
+    let blNumber: number = Number(blString);*/
 
    
       /*  if(ffpNumber + fepNumber + fpNumber + fcgpNumber + hpNumber > 100){
@@ -48,6 +55,38 @@ const Budget = () => {
             let pNumber: number = Number(pString);
 
             let solution = mbNumber * (pNumber / 100)
+            return solution;
+        
+        
+      }
+
+      function calcBL(mb: string, ffp: string, fep: string, fp: string, fcgp: string, hp: string) { // runs automatically
+            let mbString: string = mb;
+            let mbNumber: number = Number(mbString);
+
+            let ffpString: string = ffp;
+            let ffpNumber: number = Number(ffpString);
+
+            let fepString: string = fep;
+            let fepNumber: number = Number(fepString);
+
+            let fpString: string = fp;
+            let fpNumber: number = Number(fpString);
+
+            let fcgpString: string = fcgp;
+            let fcgpNumber: number = Number(fcgpString);
+
+            let hpString: string = hp;
+            let hpNumber: number = Number(hpString);
+
+
+            let ffB = mbNumber * (ffpNumber / 100)
+            let feB = mbNumber * (fepNumber / 100)
+            let fB = mbNumber * (fpNumber / 100)
+            let fcgB = mbNumber * (fcgpNumber / 100)
+            let hB = mbNumber * (hpNumber / 100)
+
+            let solution = mbNumber - (ffB + feB + fB + fcgB + hB)
             return solution;
         
         
@@ -215,14 +254,30 @@ const Budget = () => {
                             </div>
                         </div>
                     </div>
+                    <div className='b-main' id='budgetleft'>
+                        <div className='b-main-2'>
+                            <div className='color-key' id="blck"></div>
+                        </div>
+                        <div className='b-main-2 sec-name'>
+                            <div className='section-name'>
+                                <p> Budget Left </p>
+                            </div>
+                            <div className='cb'>
+                                <span>$</span><p>{calcBL(maxB,ffp, fep, fp, fcgp, hp)}</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </form>
             </div>
-            <div className="budget-inner">
-            <CanvasJSChart
-                options={options}
-                /* onRef = {ref => this.chart = ref} */
-            />
+            <div className="budget-inner" id="piechart">
+                <CanvasJSChart
+                    options={options}
+                    /* onRef = {ref => this.chart = ref} */
+                />
+                <div id="ledger-btn-div">
+                    <button id="ledger-btn"> Ledger </button>
+                </div>
             </div>
         </div>
     )
