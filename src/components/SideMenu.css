@@ -1,0 +1,7 @@
+/* Side Menu CSS */
+h1 {font-size: 120%; color: black; border-bottom:1px solid black;text-transform:uppercase; padding-bottom: 1%;}
+.side-menu{width: 25%; padding: 5% 2% 2% 2%; display: flex; flex-direction:column; border-right: 1px solid black; position: fixed; top: 0; bottom: 0;}
+.side-menu-section{padding-bottom: 15%; display: flex; flex-direction: column; justify-content: right;}
+.side-menu-span{display: block; padding: 3% 0% 0% 10%;} /* top right bottom left*/
+.side-menu-span a{text-decoration: none; color: black; font-size: 110%;}
+.side-menu-span a:hover{color: red;}

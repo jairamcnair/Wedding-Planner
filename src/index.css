@@ -1,0 +1,18 @@
+/* deleted everything and started from scratch */
+
+/* Side Menu CSS */
+h1 {font-size: 120%; color: black; border-bottom:1px solid black;text-transform:uppercase; padding-bottom: 1%;}
+.side-menu{width: 25%; padding: 5% 2% 2% 2%; display: flex; flex-direction:column; border-right: 1px solid black; position: fixed; top: 0; bottom: 0;}
+.side-menu-section{padding-bottom: 15%; display: flex; flex-direction: column; justify-content: right;}
+.side-menu-span{display: block; padding: 3% 0% 0% 10%;} /* top right bottom left*/
+.side-menu-span a{text-decoration: none; color: black; font-size: 110%;}
+.side-menu-span a:hover{color: red;}
+
+/* Budget CSS */
+.b-md{display:flex;flex-direction:column;padding:5%;font-size:150%;border:1px solid pink;}
+.b-md span{font-size:150%;}
+#b2-1{display:flex;}
+#b2-1 input{width:10%;text-align:right;padding:1%;border:none;background-color:#ededed;margin-left:3%;margin-right:1%;}
+#b3-1{margin-right:3%;}
+.color-key{width:50px;height:50px;background-color:red;}
+

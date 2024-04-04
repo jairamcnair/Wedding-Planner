@@ -1,0 +1,108 @@
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    /*font-family: 'sans serif', 'Montserrat'; /* change font here*/
+    font-family: "Yomogi", cursive;
+    font-weight: 500;
+    font-size:105%;
+}
+
+.budget{
+    display: flex;
+    margin-left: 25%;
+    border:2px solid red;
+}
+#container{ /* main container*/
+    display: flex;
+    flex-direction:column;
+    width: 100%;
+    /*margin-left:25%; /* so it isn't behind menu - don't need any more because .budget has margin-left*/
+    padding: 1% 5%;
+    border: 1px solid orange;
+}
+
+.budget-inner{
+    width:50%;
+}
+
+#maxBudget{
+    margin-bottom: 5%; /* so max budget input has space below it*/
+}
+#maxBudget input[type=text]{
+    padding: 10px;
+}
+
+.b-main{
+    display: flex;
+}
+
+
+
+.b-main-2{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid red;
+}
+.sec-name{
+    width: 100%;
+    padding-left: 3%;
+}
+.section-name{
+    display: flex;  /* makes superscript inline */
+    justify-content: space-between;
+    width: 100%;
+    border: 1px solid orchid;
+}
+h1{
+    border:1px solid purple;
+    margin-right: 100px;
+}
+sup{
+    border: 1px solid lightcoral;
+    width: 100px;
+}
+span{
+    border:1px solid lightblue;
+}
+.section-name input[type=text]{
+    width: 50px;
+    height: 50px;
+    border: 1px solid lightsalmon;
+}
+.section-name input[type=text]:focus{
+    background-color: lightsalmon;
+    outline: none; /* the border */
+}
+
+.color-key{ /* color square divs*/
+    width: 50px;
+    height: 50px;
+}
+#ffck{
+    background-color: pink;
+}
+#feck{
+    background-color: brown;
+}
+#fck{
+    background-color: lightcoral;
+}
+#fcgck{
+    background-color: lightsalmon;
+}
+
+
+.cb{
+    display: flex;
+}
+
+
+
+
+
+
+
+
+

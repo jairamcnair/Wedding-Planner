@@ -1,0 +1,18 @@
+/* deleted everything and re-wrote own */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    /*font-family: 'sans serif', 'Montserrat'; /* change font here*/
+    font-family: "Yomogi", cursive;
+    font-weight: 500;
+}
+
+body{ width: 100%;}
+span{display: inline;}
+.page-div{margin-left:25%;padding:3%;width:75%; }
+p{display:inline;}
+input{padding:5px;}
