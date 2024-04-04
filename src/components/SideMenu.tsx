@@ -33,6 +33,11 @@ function SideMenu(){
                     <span className="side-menu-span"> <a href="#"> Festivities </a></span>
                 </div>
 
+                <div className="side-menu-section">
+                    <h1> Honeymoon </h1>
+                    <span className="side-menu-span"> <a href="#"> Honeymoon Checklist </a></span>
+                </div>
+
 
             </div>
         
