@@ -1,36 +1,87 @@
-//import Message from './Message';
-//import BudgetData from './BudgetData';
-//import ListGroup from './components/ListGroup';
-import SideMenu from './components/SideMenu';
-import Budget from './components/Budget.tsx';
-//import Chart from './components/Chart.tsx';
+
+// source: https://stackoverflow.com/questions/69866581/property-exact-does-not-exist-on-type
+
+import * as React from 'react'
+import { HashRouter as Router, Routes, Route, Link} from 'react-router-dom'
+import { render } from 'react-dom';
+import {Home, Foo, Bar} from './components/Components';
+import Budget from './components/Budget.tsx'; // line 23
 
 
-//import Form from './components/Form';
-
-
-function App(){
-  //return <div> <ListGroup/></div>
-  return (
-    <>
-        <body>
-          <SideMenu/>
-          
-          <Budget/>
-        </body>
-    </>
-
-  )
-  
+class App extends React.Component {
+  render() {
+    return (
+      <Router>
+        <div>
+          <nav>
+            <Link to="/">Home</Link>
+            <Link to="/foo">Budget</Link>
+            <Link to="/bar">Bar</Link>
+          </nav>
+          <Routes>
+            <Route path="/" element={<Home></Home>} />
+            <Route path="/foo" element={<Budget></Budget>}/>
+            <Route path="/bar" element={<Bar></Bar>} />
+          </Routes>
+        </div>
+      </Router>
+    );
+  }
 }
-
-/*
-<div className="menu-div">
-                <SideMenu/>
-            </div>
-
-            <div className="page-div">
-                <Budget/>
-            </div>
-*/
 export default App;
+
+/* CORRECT
+class App extends React.Component {
+  render() {
+    return (
+      <Router>
+        <div>
+          <nav>
+            <Link to="/">Home</Link>
+            <Link to="/foo">Budget</Link>
+            <Link to="/bar">Bar</Link>
+          </nav>
+          <Routes>
+            <Route path="/" element={<Home></Home>} />
+            <Route path="/foo" element={<Budget></Budget>}/>
+            <Route path="/bar" element={<Bar></Bar>} />
+          </Routes>
+        </div>
+      </Router>
+    );
+  }
+}
+export default App;
+//render(<App />, document.getElementById('root'));
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

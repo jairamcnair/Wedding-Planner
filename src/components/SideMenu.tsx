@@ -1,13 +1,20 @@
+import React from 'react';
+// source: https://galaxies.dev/quickwin/react-router-typescript
+// source: https://www.dhiwise.com/post/react-router-dom-typescript-simplifying-complex-navigation
+
+
+
+// dynamic link
+import { Link } from 'react-router-dom';
 
 function SideMenu(){
-    return(
         <>
             <div className="side-menu">
 
                 <div className="side-menu-section">
                     <h1> Budget + Guest List</h1>
-                    <span className="side-menu-span"> <a href="#"> Budget </a></span>
-                    <span className="side-menu-span"> <a href="#"> Guest List </a></span>
+                    <span className="side-menu-span"> <Link to="/Budget.tsx"> Budget </Link></span>
+                    <span className="side-menu-span"> <Link to="/Chart.tsx"> Guest List </Link></span>
                 </div>
 
                 <div className="side-menu-section">
@@ -42,8 +49,11 @@ function SideMenu(){
             </div>
         
         </>
-    )
 }
+
+
+
+
 
 
 export default SideMenu;
