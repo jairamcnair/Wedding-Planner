@@ -1,7 +1,9 @@
 //source: https://stackblitz.com/edit/canvasjs-react-charts-typescript?file=src%2FApp.tsx 
 //source: https://www.npmjs.com/package/@canvasjs/react-charts
 // install command: npm install @canvasjs/react-charts 
-import {useState} from 'react';
+// source: https://blog.logrocket.com/using-localstorage-react-hooks/ - for local storage
+// source: https://www.freecodecamp.org/news/how-to-use-localstorage-with-react-hooks-to-set-and-get-items/ - for local storage
+import {useState, useEffect} from 'react';
 // @ts-ignore
 import CanvasJSReact from '@canvasjs/react-charts';
 //var CanvasJS = CanvasJSReact.CanvasJS;
@@ -9,43 +11,61 @@ var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 
 const Budget = () => {
-    const [maxB, setMaxB] = useState('15000');
+    
+    // declaration constants
+    //let input: any = document.querySelector(".input-box");
+    let [maxB, setMaxB] = useState('');  // THIS WORKS, BUT IT DOESN'T DO THE MATH!!!
+    let [ffp, setFfp] = useState('50');
+    let [fep, setFep] = useState('10');
+    let [fp, setFp] = useState('20');
+    let [fcgp, setFcgp] = useState('10');
+    let [hp, setHp] = useState('10');
+
+    function updateStorage(){
+        //localStorage.setItem("input", input.innerHTML);
+        localStorage.setItem("maxB", JSON.stringify(maxB)); 
+        localStorage.setItem("ffp", JSON.stringify(ffp));
+        localStorage.setItem("fep", JSON.stringify(fep));
+        localStorage.setItem("fp", JSON.stringify(fp));
+        localStorage.setItem("fcgp", JSON.stringify(fcgp));
+        localStorage.setItem("hp", JSON.stringify(hp));
+    }
+
+    function showNotes(){
+        //input.innerHTML = localStorage.getItem("input");
+        //maxB = useState(localStorage.getItem("maxB")); 
+        /*let myContainer = document.getElementById('maxB-element') as HTMLInputElement; 
+        myContainer.value = {localStorage.getItem("maxB")};*/
+        localStorage.getItem("ffp");
+        localStorage.getItem("fep");
+        localStorage.getItem("fp");
+        localStorage.getItem("fcgp");
+        localStorage.getItem("hp");
+    }
+    
+    /*const [maxB, setMaxB] = useState('');
     const [ffp, setFfp] = useState('50');
     const [fep, setFep] = useState('10');
-    const [fp, setFp] = useState('10');
+    const [fp, setFp] = useState('20');
     const [fcgp, setFcgp] = useState('10');
-    const [hp, setHp] = useState('20');
-    const [bl, setBl] = useState('20');
+    const [hp, setHp] = useState('10');
+    //const [bl, setBl] = useState('10');*/
 
-    /*let maxBString: string = maxB;
-    let maxBNumber: number = Number(maxBString);
+    // set local storage
+    /*localStorage.setItem("maxB", JSON.stringify(maxB)); 
+    localStorage.setItem("ffp", JSON.stringify(ffp));
+    localStorage.setItem("fep", JSON.stringify(fep));
+    localStorage.setItem("fp", JSON.stringify(fp));
+    localStorage.setItem("fcgp", JSON.stringify(fcgp));
+    localStorage.setItem("hp", JSON.stringify(hp));
 
-    let ffpString: string = ffp;
-    let ffpNumber: number = Number(ffpString);
+    // reload saved local storage on page reload
+    function loadValues(){
+        //notesContainer.innerHTML = localStorage.getItem("notes");
+        JSON.parse(localStorage.getItem("maxB") || '""') 
+    }
 
-    let fepString: string = fep;
-    let fepNumber: number = Number(fepString);
-
-    let fpString: string = fp;
-    let fpNumber: number = Number(fpString);
-
-    let fcgpString: string = fcgp;
-    let fcgpNumber: number = Number(fcgpString);
-
-    let hpString: string = hp;
-    let hpNumber: number = Number(hpString);
-
-    let blString: string = bl;
-    let blNumber: number = Number(blString);*/
-
-   
-      /*  if(ffpNumber + fepNumber + fpNumber + fcgpNumber + hpNumber > 100){
-                alert("over")
-        }
-        if(ffpNumber + fepNumber + fpNumber + fcgpNumber + hpNumber < 100){
-            alert("under")
-    }*/
-
+    loadValues()*/
 
     function calcBud(mb: string, p: string) { // runs automatically
         let mbString: string = mb;
@@ -91,18 +111,6 @@ const Budget = () => {
         
         
       }
-
-      /*function calcP(mb: string, y: string){
-        let mbString: string = mb;
-        let yString: string = y;
-
-        let mbNumber: number = Number(mbString);
-        let yNumber: number = Number(yString);
-
-        let solution = (yNumber / mbNumber) * 100;
-        return solution;
-      }*/
-
     // pie chart 
     const options = {
         title: {
@@ -131,6 +139,8 @@ const Budget = () => {
           },
         ],
       };
+
+      
     
     return(
 
@@ -141,10 +151,13 @@ const Budget = () => {
                     <div id='maxBudget'>
                         <span>$</span>
                         <input
+                            className="input-box"
+                            id="maxb-element"
                             type='text'
                             required
                             value={maxB}
                             onChange = {(e) => setMaxB(e.target.value)}  // max b is constant for each section (ff, fe, etc.)
+                            dangerouslySetInnerHTML={{__html: maxB}}
                         /><br/>
                         <label id='maxB-label'>Maximum Budget</label>
 
@@ -158,6 +171,7 @@ const Budget = () => {
                                 <p>Food + Facility</p>
                                 <sup> 
                                     <input
+                                        className="input-box"
                                         type='text'
                                         required
                                         value={ffp}
@@ -179,6 +193,7 @@ const Budget = () => {
                                 <p>Function +  Entertainment</p>
                                 <sup> 
                                     <input
+                                        className="input-box"
                                         type='text'
                                         required
                                         value={fep}
@@ -200,6 +215,7 @@ const Budget = () => {
                                 <p>Fashion</p>
                                 <sup> 
                                     <input
+                                        className="input-box"
                                         type='text'
                                         required
                                         value={fp}
@@ -221,6 +237,7 @@ const Budget = () => {
                                 <p>Festivities, Cards, + Gifts </p>
                                 <sup> 
                                     <input
+                                        className="input-box"
                                         type='text'
                                         required
                                         value={fcgp}
@@ -242,6 +259,7 @@ const Budget = () => {
                                 <p>Honeymoon </p>
                                 <sup> 
                                     <input
+                                        className="input-box"
                                         type='text'
                                         required
                                         value={hp}
@@ -267,6 +285,11 @@ const Budget = () => {
                             </div>
                         </div>
                     </div>
+                </div>
+                <div id="btn-div">
+                    <button
+                        onClick={updateStorage}
+                    > Save Values </button>
                 </div>
             </form>
             </div>
